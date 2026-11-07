@@ -1,0 +1,224 @@
+/* ============================================================
+   Plush Babies — Tasarım Sistemi
+   Ölçek kuralı: her boyut, eski değerin %20 küçültülmüş (x0.8)
+   hali olup tamsayıya yuvarlanır (24px → 19.2 → 20px).
+   Hiçbir yazı 20px'in altına inmez. Küsurat yok.
+   Tüm bölge, kutucuk ve font boyutları --px-* tokenlarına bağlıdır.
+   ============================================================ */
+
+:root {
+  --bg: #000000;
+  --bg-soft: #0A0A0C;
+  --panel: #121215;
+  --panel-2: #1B1B1F;
+  --panel-3: #26262B;
+  --line: rgba(255, 255, 255, 0.16);
+  --line-2: rgba(255, 255, 255, 0.28);
+  --text: #FFFFFF;
+  --muted: #A3A3AC;
+  --faint: #6E6E78;
+  --accent: #FFFFFF;
+  --accent-2: #DCDCE2;
+  --accent-ink: #0A0A0C;
+  --accent-soft: rgba(255, 255, 255, 0.12);
+  --love: #FF4D5E;
+  --love-soft: rgba(255, 77, 94, 0.16);
+  --ok: #FFFFFF;
+  --ok-soft: rgba(255, 255, 255, 0.12);
+  --warn: #DCDCE2;
+  --info: #DCDCE2;
+  --danger: #FF4D5E;
+  --danger-soft: rgba(255, 77, 94, 0.14);
+  --scrim: rgba(0, 0, 0, 0.72);
+
+  --font-head: "Bricolage Grotesque", "Manrope", system-ui, sans-serif;
+  --font-body: "Manrope", "Bricolage Grotesque", system-ui, sans-serif;
+
+  /* ---------- Ölçek tokenları (--px-N = Npx) ---------- */
+  --px-2: 2px;
+  --px-3: 3px;
+  --px-4: 4px;
+  --px-5: 5px;
+  --px-6: 6px;
+  --px-7: 7px;
+  --px-8: 8px;
+  --px-10: 10px;
+  --px-11: 11px;
+  --px-12: 12px;
+  --px-13: 13px;
+  --px-14: 14px;
+  --px-16: 16px;
+  --px-18: 18px;
+  --px-20: 20px;
+  --px-21: 21px;
+  --px-22: 22px;
+  --px-24: 24px;
+  --px-26: 26px;
+  --px-27: 27px;
+  --px-28: 28px;
+  --px-29: 29px;
+  --px-32: 32px;
+  --px-35: 35px;
+  --px-37: 37px;
+  --px-38: 38px;
+  --px-42: 42px;
+  --px-43: 43px;
+  --px-45: 45px;
+  --px-46: 46px;
+  --px-48: 48px;
+  --px-51: 51px;
+  --px-56: 56px;
+  --px-59: 59px;
+  --px-61: 61px;
+  --px-64: 64px;
+  --px-67: 67px;
+  --px-70: 70px;
+  --px-74: 74px;
+  --px-77: 77px;
+  --px-88: 88px;
+  --px-112: 112px;
+  --px-120: 120px;
+  --px-144: 144px;
+  --px-160: 160px;
+  --px-100: 100px;
+  --px-140: 140px;
+  --px-176: 176px;
+  --px-180: 180px;
+  --px-198: 198px;
+  --px-204: 204px;
+  --px-224: 224px;
+  --px-240: 240px;
+  --px-256: 256px;
+  --px-304: 304px;
+  --px-320: 320px;
+
+  /* ---------- Font ölçeği (min 20px) ---------- */
+  --fs-1: var(--px-20);   /* 24px → gövde, etiket, buton */
+  --fs-2: var(--px-21);   /* 26px → plush metni, yazar adı */
+  --fs-3: var(--px-22);   /* 28px → büyük buton */
+  --fs-4: var(--px-24);   /* 30px → detay metni, rail başlığı */
+  --fs-5: var(--px-26);   /* 32px → blok başlığı */
+  --fs-6: var(--px-27);   /* 34px → bölüm h3 */
+  --fs-7: var(--px-29);   /* 36px → marka, büyük h2 */
+  --fs-8: var(--px-32);   /* 40px → büyük başlık */
+  --fs-9: var(--px-35);   /* 44px → hero min */
+  --fs-10: var(--px-38);  /* 48px → section-title min */
+  --fs-11: var(--px-42);  /* 52px → profil adı max */
+  --fs-12: var(--px-45);  /* 56px → avatar-xl */
+  --fs-13: var(--px-48);  /* 60px → profil avatar */
+  --fs-14: var(--px-67);  /* 84px → hero max */
+
+  --radius: var(--px-11);
+  --radius-lg: var(--px-16);
+  --radius-xl: var(--px-22);
+  --radius-full: 999px;
+
+  --shadow-pop: 0 var(--px-18) var(--px-56) rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 var(--px-8) var(--px-27) rgba(0, 0, 0, 0.35);
+
+  --side-w: 280px;
+  --rail-w: 304px;
+  --container-max: 688px;
+
+  /* ---------- Border tokenları (ortak çerçeve dili) ---------- */
+  --border-card: 1px solid var(--line);           /* kart / liste ayırıcı */
+  --border-card-strong: 1px solid var(--line-2);  /* belirgin kart / popover */
+  --border-section: var(--px-2) solid var(--line); /* iç bölüm ayırıcı */
+  --border-input: var(--px-2) solid var(--line-2); /* form girişi */
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* Scrollbar her zaman aynı yeri kaplar; içerik itilip çekilmez. */
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-1);
+  line-height: 1.45;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(255, 255, 255, 0.05), transparent 60%),
+    var(--bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+svg { display: block; }
+button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; }
+input, textarea, select { font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+/* ---------- Tipografi ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.section-title {
+  font-size: clamp(var(--fs-5), 4vw, var(--fs-10));
+}
+
+.text-muted { color: var(--muted); }
+.text-faint { color: var(--faint); }
+.text-accent { color: var(--accent); }
+.text-danger { color: var(--danger); }
+.text-ok { color: var(--ok); }
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: var(--px-10); height: var(--px-10); }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--line-2);
+  border-radius: var(--px-6);
+  border: var(--px-2) solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--faint); }
+
+/* ---------- Görünürlük yardımcıları ---------- */
+.hidden { display: none !important; }
+
+/* ---------- Mikro efektler ---------- */
+@keyframes heart-beat {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(var(--px-13)) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------- İkon ---------- */
+.icon {
+  width: var(--px-24);
+  height: var(--px-24);
+  flex: none;
+}
+.icon-sm { width: var(--px-21); height: var(--px-21); }
+
+/* ---------- Odak erişilebilirliği ---------- */
+:focus-visible {
+  outline: var(--px-2) solid var(--accent);
+  outline-offset: var(--px-2);
+  border-radius: var(--px-5);
+}

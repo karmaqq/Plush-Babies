@@ -1,0 +1,206 @@
+/* ============================================================
+   Plush Babies — Plush Detay Sayfası, Öfler ve Pöfler
+   ============================================================ */
+
+.plush-detail {
+  background: var(--bg);
+  border-top: var(--border-card);
+  border-bottom: var(--border-card);
+  padding: var(--px-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-18);
+}
+
+.plush-detail .plush-body { font-size: var(--fs-4); cursor: default; }
+.plush-detail .plush-body:hover { color: var(--text); }
+.plush-detail .plush-media img { max-height: 448px; }
+
+/* ---------- Öf bölümü ---------- */
+.ofs-section {
+  border-top: var(--border-section);
+  padding-top: var(--px-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-14);
+}
+.ofs-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--px-11);
+  padding-top: var(--px-11);
+}
+.ofs-head h3 { font-size: var(--fs-6); }
+
+.of-form {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--px-11);
+}
+.of-form .textarea {
+  min-height: 0;
+  flex: 1;
+  padding: var(--px-11) var(--px-14);
+  font-size: var(--fs-1);
+}
+
+.of-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ---------- Öf ---------- */
+.of {
+  display: flex;
+  gap: var(--px-10);
+  padding: var(--px-12);
+  background: var(--bg);
+  border: var(--border-card);
+  margin-top: -1px;
+}
+.of-body { flex: 1; min-width: 0; }
+.of-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--px-8);
+  flex-wrap: nowrap;
+  margin-bottom: var(--px-5);
+}
+.of-author {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: var(--fs-1);
+  color: var(--text);
+  transition: color 0.14s var(--ease);
+  white-space: nowrap;
+}
+.of-author:hover { color: var(--accent); }
+.of-handle { font-size: var(--fs-1); color: var(--faint); white-space: nowrap; }
+.of-time { font-size: var(--fs-1); color: var(--faint); margin-left: auto; white-space: nowrap; }
+.of-text {
+  font-size: var(--fs-1);
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.of-foot {
+  display: flex;
+  align-items: center;
+  gap: var(--px-6);
+  margin-top: var(--px-10);
+  flex-wrap: wrap;
+}
+.of-like {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--px-6);
+  padding: var(--px-5) var(--px-11);
+  border-radius: var(--radius-xl);
+  font-size: var(--fs-1);
+  font-weight: 800;
+  color: var(--faint);
+  transition: all 0.14s var(--ease);
+}
+.of-like:hover { color: var(--love); background: var(--love-soft); }
+.of-like.on { color: var(--love); }
+.of-like.on .icon { fill: var(--love); }
+.of-like .icon { width: var(--px-20); height: var(--px-20); }
+
+/* Öf / pöf sağ taraftaki 3 nokta menüsü */
+.item-menu {
+  margin-left: auto;
+  flex: none;
+}
+
+.pof-toggle {
+  font-size: var(--fs-1);
+  font-weight: 800;
+  color: var(--info);
+  padding: var(--px-5) var(--px-10);
+  border-radius: var(--radius-xl);
+  transition: background 0.14s var(--ease);
+}
+.pof-toggle:hover { background: rgba(255, 255, 255, 0.12); }
+
+/* ---------- Pöfler ---------- */
+.pofs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-10);
+  margin-top: var(--px-10);
+  padding-left: var(--px-14);
+  border-left: var(--border-section);
+}
+.pof {
+  display: flex;
+  gap: var(--px-10);
+  padding: var(--px-11);
+  background: var(--bg);
+  border: var(--border-card);
+}
+.pof-body { flex: 1; min-width: 0; }
+.pof-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--px-8);
+  flex-wrap: wrap;
+  margin-bottom: var(--px-3);
+}
+.pof-head .of-author { font-size: var(--fs-1); }
+.pof-head .of-handle { font-size: var(--fs-1); }
+.pof-text {
+  font-size: var(--fs-1);
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.pof-like {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--px-6);
+  padding: var(--px-3) var(--px-10);
+  border-radius: var(--radius-xl);
+  font-size: var(--fs-1);
+  font-weight: 800;
+  color: var(--faint);
+  transition: all 0.14s var(--ease);
+}
+.pof-like:hover { color: var(--love); background: var(--love-soft); }
+.pof-like.on { color: var(--love); }
+.pof-like.on .icon { fill: var(--love); }
+.pof-like .icon { width: var(--px-18); height: var(--px-18); }
+
+.pof-form {
+  display: flex;
+  align-items: center;
+  gap: var(--px-8);
+}
+.pof-form input {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg-soft);
+  border: var(--border-input);
+  border-radius: var(--radius-lg);
+  padding: var(--px-8) var(--px-13);
+  font-size: var(--fs-1);
+  outline: none;
+  color: var(--text);
+}
+.pof-form input:focus { border-color: var(--info); }
+.pof-form input::placeholder { color: var(--faint); }
+
+/* ---------- Üstteki küçük gezinti ---------- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--px-10);
+  font-size: var(--fs-1);
+  font-weight: 800;
+  color: var(--muted);
+  margin: var(--px-24) 0 var(--px-24) var(--px-24);
+  transition: color 0.14s var(--ease), transform 0.14s var(--ease);
+}
+.back-link:hover { color: var(--accent); transform: translateX(calc(-1 * var(--px-3))); }

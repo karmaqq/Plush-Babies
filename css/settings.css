@@ -1,0 +1,127 @@
+/* ============================================================
+   Plush Babies — Ayarlar / Hesap Yönetimi
+   ============================================================ */
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.settings-card {
+  background: var(--panel);
+  border-top: var(--border-card);
+  border-bottom: var(--border-card);
+  padding: var(--px-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-18);
+}
+.settings-card + .settings-card { margin-top: -1px; }
+
+.settings-card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--px-11);
+  padding-bottom: var(--px-14);
+  border-bottom: var(--border-section);
+}
+.settings-card-head .icon {
+  width: var(--px-26);
+  height: var(--px-26);
+  color: var(--accent);
+}
+.settings-card-head h2 { font-size: var(--fs-6); }
+.settings-card-head p {
+  font-size: var(--fs-1);
+  color: var(--faint);
+  font-weight: 600;
+  margin-left: auto;
+  text-align: right;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-16);
+}
+.settings-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--px-16);
+}
+
+.avatar-edit {
+  display: flex;
+  align-items: center;
+  gap: var(--px-16);
+}
+
+.avatar-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--px-10);
+}
+.avatar-upload .avatar-xl {
+  width: var(--px-88);
+  height: var(--px-88);
+  border-radius: 50%;
+  border: var(--px-2) solid var(--accent);
+  background: var(--panel-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-8);
+  font-weight: 700;
+  color: var(--accent);
+  overflow: hidden;
+}
+.avatar-upload .avatar-xl img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.avatar-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--px-7);
+  padding: var(--px-7) var(--px-14);
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-2);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+.avatar-upload-btn:hover { background: var(--accent); color: #fff; }
+.avatar-edit-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-4);
+  min-width: 0;
+}
+.avatar-edit-side strong { font-size: var(--fs-4); }
+.form-note { font-size: var(--fs-1); color: var(--faint); line-height: 1.5; }
+
+.settings-actions .btn:disabled,
+.settings-actions .btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  filter: grayscale(0.4);
+}
+
+.danger-zone {
+  background: var(--danger-soft);
+}
+.danger-zone .settings-card-head h2 { color: var(--danger); }
+.danger-zone .settings-card-head .icon { color: var(--danger); }
+
+.settings-actions {
+  display: flex;
+  gap: var(--px-11);
+  flex-wrap: wrap;
+  padding-top: var(--px-5);
+}

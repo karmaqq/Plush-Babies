@@ -1,0 +1,79 @@
+/* ============================================================
+   Plush Babies — Duyarlı Yerleşim (tüm cihazlar)
+   ============================================================ */
+
+/* ---------- 1500px altı: sağ sütun daralır ---------- */
+@media (max-width: 1500px) {
+  :root { --rail-w: 268px; --side-w: 256px; }
+}
+
+/* ---------- 1240px altı: sağ sütun gizlenir ---------- */
+@media (max-width: 1240px) {
+  body { grid-template-columns: var(--side-w) 1fr; grid-template-areas: "sidebar shell"; max-width: min(calc(var(--side-w) + var(--container-max)), 100%); }
+  .rail { display: none; }
+}
+
+/* ---------- 980px altı: sidebar gizlenir, mobil bar gelir ---------- */
+@media (max-width: 980px) {
+  body {
+    display: block;
+    max-width: none;
+    margin: 0;
+    padding-bottom: calc(var(--px-70) + env(safe-area-inset-bottom));
+  }
+  .sidebar { display: none; }
+
+  .view { padding: 0; }
+
+  .mobilebar { display: grid; }
+
+  /* Arama kutusu mobilde üstte sabit açılır bar olur */
+  .rail-search {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 55;
+    border-radius: 0;
+    background: rgba(11, 12, 15, 0.94);
+    backdrop-filter: blur(var(--px-10));
+    border: none;
+    border-bottom: var(--border-section);
+    padding: var(--px-13) var(--px-16);
+  }
+  .rail-search.open { display: flex; }
+}
+
+/* ---------- 680px altı: kompakt ama yine de 20px taban ---------- */
+@media (max-width: 680px) {
+  .plush { padding: var(--px-20); }
+  .plush-body { font-size: var(--fs-1); }
+  .plush-detail { padding: var(--px-18); }
+  .plush-detail .plush-body { font-size: var(--fs-2); }
+
+  .act { padding: var(--px-6) var(--px-10); }
+
+  .auth-card { padding: var(--px-22) var(--px-18); }
+  .settings-row { grid-template-columns: 1fr; }
+  .settings-card { padding: var(--px-18); }
+  .profile-main { padding: 0 var(--px-16) var(--px-20); }
+  .filter-tabs { padding: 0 var(--px-16); }
+  .profile-avatar { width: 102px; height: 102px; font-size: var(--fs-11); }
+  .modal { padding: var(--px-18); }
+
+  .composer-top { gap: var(--px-10); }
+  .of { padding: var(--px-11); }
+  .of-form .textarea { font-size: var(--fs-1); }
+  .pofs { padding-left: var(--px-8); }
+}
+
+/* ---------- 420px altı: tek sütunluk aksiyonlar ---------- */
+@media (max-width: 420px) {
+  .plush-actions { gap: var(--px-3); justify-content: space-between; }
+  .act { padding: var(--px-6); }
+  .act span { font-size: var(--fs-1); }
+  .act-count { display: none; }
+  .btn { padding: var(--px-11) var(--px-16); }
+  .brand-name { font-size: var(--fs-4); }
+}

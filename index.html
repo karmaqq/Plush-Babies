@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Plush Babies — kişisel plush paylaşım platformu. Büyük, doygun ve hızlı.">
+<title>Plush Babies — Plush Şamatası</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23000000'/><text x='50' y='72' font-size='60' font-family='Arial Black' text-anchor='middle' fill='%23FFFFFF'>P</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/feed.css">
+<link rel="stylesheet" href="css/plush.css">
+<link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="css/chat.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/settings.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ===== SOL SİDEBAR (masaüstü) ===== -->
+<aside id="sidebar" class="sidebar" aria-label="Ana menü">
+  <a href="#/feed" class="brand">
+    <span class="brand-mark">P</span>
+    <span class="brand-name">Plush Babies</span>
+  </a>
+
+  <nav class="side-nav">
+    <a href="#/feed" class="side-link" data-nav="feed">
+      <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M3 11.2 12 4l9 7.2M5.2 9.8V20h5v-5.2h3.6V20h5V9.8"/></svg>
+      <span>Şamata</span>
+    </a>
+    <a href="#/feed" class="side-link js-link-profile-me" data-nav="profile">
+      <svg viewBox="0 0 24 24" class="icon"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4.5 20c1.2-3.4 4-5 7.5-5s6.3 1.6 7.5 5"/></svg>
+      <span>Vitrinim</span>
+    </a>
+    <a href="#/settings" class="side-link" data-nav="settings">
+      <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M19 12a7 7 0 0 0-.2-1.6l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2.8-1.6L13.4 2h-2.8l-.4 2.9a7 7 0 0 0-2.7 1.6l-2.3-1-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .5 0 1.1.2 1.6l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2.8 1.6l.3 2.9h2.8l.4-2.9a7 7 0 0 0 2.7-1.6l2.3 1 2-3.4-2-1.5c.2-.5.2-1.1.2-1.6Z"/></svg>
+      <span>Ayarlar</span>
+    </a>
+  </nav>
+
+  <div class="side-chat">
+    <div class="side-chat-head">
+      <a href="#/rooms" class="side-chat-title" data-nav="rooms">
+        <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M4 6.5h16v11H8.5L4 20.5z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8.5 10.5h7M8.5 13.5h4"/></svg>
+        <span>Odalar</span>
+        <span class="side-badge" id="sideRoomsBadge" hidden></span>
+      </a>
+      <button class="icon-btn icon-btn-sm" id="btnNewRoomSide" title="Yeni oda" aria-label="Yeni oda">
+        <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+      </button>
+    </div>
+    <div id="sideRoomList" class="side-room-list"></div>
+  </div>
+
+  <button class="btn btn-accent btn-block new-plush-btn" id="btnNewPlushSidebar">
+    <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+    <span>Yeni Plush</span>
+  </button>
+
+  <div class="side-user" id="sideUser">
+    <div class="avatar avatar-lg" id="sideUserAvatar"></div>
+    <div class="side-user-meta">
+      <strong id="sideUserName">—</strong>
+      <span id="sideUserHandle">@—</span>
+    </div>
+    <button class="icon-btn" id="btnLogoutSide" title="Çıkış yap" aria-label="Çıkış yap">
+      <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 4h-2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2M9 12h11M17 9l3 3-3 3"/></svg>
+    </button>
+  </div>
+</aside>
+
+<!-- ===== ANA İÇERİK ===== -->
+<div class="shell">
+  <main class="main">
+    <div id="view" class="view" aria-live="polite"></div>
+  </main>
+</div>
+
+<!-- ===== SAĞ SÜTUN (masaüstü, arama + öneriler) ===== -->
+<aside id="rail" class="rail" aria-label="Arama, mesajlar ve önerilen hesaplar">
+  <div class="rail-search" id="railSearch">
+    <svg viewBox="0 0 24 24" class="icon"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="m20 20-3.4-3.4"/></svg>
+    <input type="search" id="globalSearch" placeholder="İnsan ara…" autocomplete="off">
+  </div>
+  <div class="rail-card rail-chat-card">
+    <h2 class="rail-title">Mesajlar</h2>
+    <div id="railDmList" class="rail-dm-list"></div>
+  </div>
+  <div class="rail-card rail-members-card hidden" id="railMembersCard">
+    <h2 class="rail-title">Üyeler</h2>
+    <div id="railMembers" class="rail-members"></div>
+  </div>
+  <div class="rail-card">
+    <h2 class="rail-title">Önerilen Vitrinler</h2>
+    <div id="railSuggest" class="rail-suggest"></div>
+  </div>
+</aside>
+
+<!-- ===== MOBİL ALT BAR ===== -->
+<nav id="mobilebar" class="mobilebar" aria-label="Mobil menü">
+  <a href="#/feed" class="mob-link" data-nav="feed">
+    <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M3 11.2 12 4l9 7.2M5.2 9.8V20h5v-5.2h3.6V20h5V9.8"/></svg>
+    <span>Şamata</span>
+  </a>
+  <a href="#/rooms" class="mob-link" data-nav="rooms">
+    <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M4 6.5h16v11H8.5L4 20.5z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8.5 10.5h7M8.5 13.5h4"/></svg>
+    <span>Odalar</span>
+  </a>
+  <a href="#/dms" class="mob-link" data-nav="dm" aria-label="Mesajlar">
+    <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m3 11 18-8-8 18-1.5-7L3 11z"/></svg>
+    <span>Mesaj</span>
+  </a>
+  <button class="mob-link mob-new" id="btnNewPlushMobile" aria-label="Yeni plush">
+    <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+    <span>Plush</span>
+  </button>
+  <button class="mob-link" id="btnMobileSearch" aria-label="Ara">
+    <svg viewBox="0 0 24 24" class="icon"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="m20 20-3.4-3.4"/></svg>
+    <span>Ara</span>
+  </button>
+  <a href="#/feed" class="mob-link js-link-profile-me" data-nav="profile">
+    <div class="avatar avatar-sm" id="mobAvatar"></div>
+    <span>Vitrinim</span>
+  </a>
+  <a href="#/settings" class="mob-link" data-nav="settings">
+    <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M19 12a7 7 0 0 0-.2-1.6l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2.8-1.6L13.4 2h-2.8l-.4 2.9a7 7 0 0 0-2.7 1.6l-2.3-1-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .5 0 1.1.2 1.6l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2.8 1.6l.3 2.9h2.8l.4-2.9a7 7 0 0 0 2.7-1.6l2.3 1 2-3.4-2-1.5c.2-.5.2-1.1.2-1.6Z"/></svg>
+    <span>Ayarlar</span>
+  </a>
+</nav>
+
+<!-- ===== MODAL & TOAST ===== -->
+<div id="modal-root" class="modal-root"></div>
+<div id="toast-root" class="toast-root" aria-live="polite"></div>
+
+<!-- ===== Firebase (Realtime Database + Auth + Analytics) ===== -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics-compat.js"></script>
+
+<script src="js/config.js"></script>
+<script src="js/store.js"></script>
+<script src="js/router.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

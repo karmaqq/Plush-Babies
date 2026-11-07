@@ -1,0 +1,168 @@
+/* ============================================================
+   Plush Babies — Şamata ve Plush Kartları
+   ============================================================ */
+
+.feed { display: flex; flex-direction: column; gap: 0; }
+
+/* ---------- Plush kartı ---------- */
+.plush {
+  background: var(--bg);
+  border-top: var(--border-card);
+  border-bottom: var(--border-card);
+  padding: var(--px-20);
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-12);
+  transition: border-color 0.16s var(--ease), transform 0.16s var(--ease), box-shadow 0.16s var(--ease);
+  position: relative;
+  margin-top: -1px;
+}
+.plush:hover { box-shadow: var(--shadow-card); }
+
+.plush-head {
+  display: flex;
+  align-items: center;
+  gap: var(--px-13);
+  flex-wrap: nowrap;
+}
+.plush-author {
+  display: flex;
+  align-items: center;
+  gap: var(--px-13);
+  min-width: 0;
+  flex: 1;
+}
+.plush-author-name {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: var(--fs-2);
+  line-height: 1.2;
+  color: var(--text);
+  white-space: nowrap;
+  transition: color 0.14s var(--ease);
+}
+.plush-author-name:hover { color: var(--accent); }
+.plush-author-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--px-8);
+  min-width: 0;
+}
+.plush-author-handle {
+  font-size: var(--fs-1);
+  color: var(--faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.plush-time {
+  font-size: var(--fs-1);
+  color: var(--faint);
+  font-weight: 600;
+  white-space: nowrap;
+  flex: none;
+}
+.plush-time:hover { color: var(--muted); text-decoration: underline; }
+
+.plush-menu {
+  margin-left: auto;
+  flex: none;
+}
+
+.plush-body {
+  font-size: var(--fs-2);
+  line-height: 1.45;
+  color: var(--text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.plush-body:hover { color: #fff; }
+
+.plush-media {
+  border: var(--border-card);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+.plush-media img {
+  width: 100%;
+  max-height: 368px;
+  object-fit: cover;
+  transition: transform 0.3s var(--ease);
+}
+.plush-media:hover img { transform: scale(1.015); }
+
+/* ---------- Aksiyon çubuğu ---------- */
+.plush-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--px-8);
+  padding-top: var(--px-6);
+}
+.act {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--px-8);
+  padding: var(--px-8) var(--px-13);
+  border-radius: var(--radius-xl);
+  font-size: var(--fs-1);
+  font-weight: 800;
+  color: var(--muted);
+  transition: background 0.14s var(--ease), color 0.14s var(--ease), transform 0.14s var(--ease);
+  user-select: none;
+}
+.act .icon { width: var(--px-21); height: var(--px-21); transition: transform 0.18s var(--ease); }
+.act:hover { background: var(--panel-2); color: var(--text); }
+.act:active { transform: scale(0.94); }
+
+.act-like.on { color: var(--love); }
+.act-like.on .icon { fill: var(--love); animation: heart-beat 0.35s var(--ease); }
+
+.act-of.on { color: var(--info); }
+.act-of:hover { color: var(--info); }
+
+.act-pocket.on { color: var(--accent); }
+.act-pocket.on .icon { fill: var(--accent); }
+.act-pocket:hover { color: var(--accent); }
+
+/* ---------- Görsel düğmesi (plush oluşturma) ---------- */
+.media-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--px-8);
+  padding: var(--px-10) var(--px-16);
+  border-radius: var(--radius-xl);
+  background: var(--panel-2);
+  border: var(--border-card);
+  font-size: var(--fs-1);
+  font-weight: 800;
+  color: var(--muted);
+  transition: all 0.15s var(--ease);
+}
+.media-btn:hover { color: var(--accent); }
+.media-btn .icon { width: var(--px-21); height: var(--px-21); }
+
+/* ---------- Ayrılmış (pockets) sekmesi rozeti ---------- */
+.filter-tabs {
+  display: flex;
+  gap: var(--px-8);
+  flex-wrap: wrap;
+  padding: 0 var(--px-24);
+}
+.filter-tab {
+  padding: var(--px-10) var(--px-18);
+  border-radius: var(--radius-xl);
+  background: var(--panel);
+  border: var(--border-card);
+  font-size: var(--fs-1);
+  font-weight: 800;
+  color: var(--muted);
+  transition: all 0.15s var(--ease);
+}
+.filter-tab:hover { background: var(--panel-2); color: var(--text); }
+.filter-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}

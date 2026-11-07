@@ -1,0 +1,110 @@
+/* ============================================================
+   Plush Babies — Vitrin Sayfası
+   ============================================================ */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-20);
+}
+
+.profile-hero {
+  background: var(--panel);
+  border-top: var(--border-card);
+  border-bottom: var(--border-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-banner {
+  height: var(--px-160);
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02) 60%),
+    var(--panel-2);
+  position: relative;
+}
+.profile-banner img { width: 100%; height: 100%; object-fit: cover; }
+
+.profile-main {
+  padding: 0 var(--px-24) var(--px-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-13);
+  margin-top: calc(-1 * var(--px-51));
+  position: relative;
+}
+.profile-avatar-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--px-13);
+}
+.profile-avatar {
+  width: var(--px-120);
+  height: var(--px-120);
+  font-size: var(--fs-13);
+  border: var(--px-4) solid var(--panel);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-head);
+  font-weight: 800;
+  box-shadow: 0 var(--px-10) var(--px-32) rgba(0, 0, 0, 0.4);
+}
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.profile-name {
+  font-size: clamp(var(--fs-7), 4.5vw, var(--fs-11));
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+.profile-handle {
+  font-size: var(--fs-2);
+  color: var(--faint);
+  font-weight: 700;
+}
+.profile-bio {
+  font-size: var(--fs-2);
+  color: var(--muted);
+  line-height: 1.45;
+  max-width: 60ch;
+}
+
+.profile-stats {
+  display: flex;
+  gap: var(--px-11);
+  flex-wrap: wrap;
+}
+.stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--px-6);
+  padding: var(--px-8) var(--px-16);
+  background: var(--panel-2);
+  border: var(--border-card);
+  border-radius: var(--radius-xl);
+  font-size: var(--fs-1);
+  font-weight: 800;
+}
+.stat-chip .num { color: var(--accent); }
+
+.profile-joined {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--px-8);
+  font-size: var(--fs-1);
+  color: var(--faint);
+  font-weight: 700;
+}
+.profile-joined .icon { width: var(--px-20); height: var(--px-20); }
+
+/* ---------- Plush grid'i ---------- */
+.profile-plushes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--px-16);
+}
